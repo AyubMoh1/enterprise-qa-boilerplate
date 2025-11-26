@@ -4,7 +4,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node app/server.js",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:api": "playwright test tests/api",
+    "test:ui": "playwright test tests/ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
   },
   "repository": {
     "type": "git",
