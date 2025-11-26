@@ -1,0 +1,28 @@
+{
+  "name": "enterprise-qa-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/server.js",
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyubMoh1/enterprise-qa-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyubMoh1/enterprise-qa-boilerplate/issues"
+  },
+  "homepage": "https://github.com/AyubMoh1/enterprise-qa-boilerplate#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
+  }
+}

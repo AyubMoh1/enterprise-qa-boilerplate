@@ -1,0 +1,10 @@
+private*
+node_modules/
+reports/
+playwright-report/
+test-results/
+.env
+*.log
+.DS_Store
+*.db
+*.sqlite
