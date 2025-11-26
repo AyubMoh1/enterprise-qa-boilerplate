@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - QA Boilerplate</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="navbar">
+            <div class="nav-brand">QA Boilerplate</div>
+            <div class="nav-links">
+                <span id="user-email" class="user-info"></span>
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="dashboard-content">
+                <h1>Dashboard</h1>
+                <p class="subtitle">Welcome to your dashboard</p>
+
+                <div class="card">
+                    <h2>User Information</h2>
+                    <div class="user-details">
+                        <div class="detail-row">
+                            <span class="label">Email:</span>
+                            <span id="dashboard-email" class="value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Status:</span>
+                            <span class="value badge badge-success">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Quick Actions</h2>
+                    <div class="actions">
+                        <button class="btn btn-outline">View Profile</button>
+                        <button class="btn btn-outline">Settings</button>
+                        <button class="btn btn-outline">Help</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
