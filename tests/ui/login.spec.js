@@ -38,7 +38,7 @@ test.describe('Login UI Tests', () => {
     expect(errorVisible).toBe(true);
 
     const errorText = await loginPage.getErrorMessage();
-    expect(errorText).toContain('Login failed');
+    expect(errorText).toContain('Invalid credentials');
   });
 
   test('should login successfully with valid credentials', async ({ page }) => {
