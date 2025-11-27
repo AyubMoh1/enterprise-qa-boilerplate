@@ -1,7 +1,5 @@
 const { test, expect } = require('@playwright/test');
 
-const BASE_URL = 'http://localhost:3000';
-
 let authToken;
 let testUserId;
 
@@ -12,13 +10,13 @@ test.describe('Users API', () => {
       password: 'Test123!'
     };
 
-    const registerResponse = await request.post(`${BASE_URL}/api/auth/register`, {
+    const registerResponse = await request.post(`/api/auth/register`, {
       data: userData
     });
     const registerBody = await registerResponse.json();
     testUserId = registerBody.id;
 
-    const loginResponse = await request.post(`${BASE_URL}/api/auth/login`, {
+    const loginResponse = await request.post(`/api/auth/login`, {
       data: userData
     });
     const loginBody = await loginResponse.json();
@@ -26,7 +24,7 @@ test.describe('Users API', () => {
   });
 
   test('should fail to get users without token', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/api/users`);
+    const response = await request.get(`/api/users`);
 
     expect(response.status()).toBe(401);
     const body = await response.json();
@@ -34,7 +32,7 @@ test.describe('Users API', () => {
   });
 
   test('should get all users with valid token', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/api/users`, {
+    const response = await request.get(`/api/users`, {
       headers: {
         'Authorization': `Bearer ${authToken}`
       }
@@ -47,7 +45,7 @@ test.describe('Users API', () => {
   });
 
   test('should get user by ID with valid token', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/api/users/${testUserId}`, {
+    const response = await request.get(`/api/users/${testUserId}`, {
       headers: {
         'Authorization': `Bearer ${authToken}`
       }
@@ -61,14 +59,14 @@ test.describe('Users API', () => {
   });
 
   test('should fail to get user by ID without token', async ({ request }) => {
-    const response = await request.get(`${BASE_URL}/api/users/${testUserId}`);
+    const response = await request.get(`/api/users/${testUserId}`);
 
     expect(response.status()).toBe(401);
   });
 
   test('should update user with valid token', async ({ request }) => {
     const newEmail = `updated${Date.now()}@example.com`;
-    const response = await request.put(`${BASE_URL}/api/users/${testUserId}`, {
+    const response = await request.put(`/api/users/${testUserId}`, {
       headers: {
         'Authorization': `Bearer ${authToken}`
       },
@@ -83,7 +81,7 @@ test.describe('Users API', () => {
   });
 
   test('should fail to update user without token', async ({ request }) => {
-    const response = await request.put(`${BASE_URL}/api/users/${testUserId}`, {
+    const response = await request.put(`/api/users/${testUserId}`, {
       data: {
         email: 'newemail@example.com'
       }
@@ -97,13 +95,13 @@ test.describe('Users API', () => {
       email: `todelete${Date.now()}@example.com`,
       password: 'Delete123!'
     };
-    const registerResponse = await request.post(`${BASE_URL}/api/auth/register`, {
+    const registerResponse = await request.post(`/api/auth/register`, {
       data: userData
     });
     const registerBody = await registerResponse.json();
     const userIdToDelete = registerBody.id;
 
-    const response = await request.delete(`${BASE_URL}/api/users/${userIdToDelete}`, {
+    const response = await request.delete(`/api/users/${userIdToDelete}`, {
       headers: {
         'Authorization': `Bearer ${authToken}`
       }
@@ -115,7 +113,7 @@ test.describe('Users API', () => {
   });
 
   test('should fail to delete user without token', async ({ request }) => {
-    const response = await request.delete(`${BASE_URL}/api/users/${testUserId}`);
+    const response = await request.delete(`/api/users/${testUserId}`);
 
     expect(response.status()).toBe(401);
   });

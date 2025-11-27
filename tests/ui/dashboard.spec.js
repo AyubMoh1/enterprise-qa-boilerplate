@@ -26,7 +26,7 @@ test.describe('Dashboard UI Tests', () => {
     const testEmail = `test-${Date.now()}@example.com`;
     const testPassword = 'Test123!';
 
-    await page.request.post('http://localhost:3000/api/auth/register', {
+    await page.request.post('/api/auth/register', {
       data: {
         email: testEmail,
         password: testPassword
@@ -45,14 +45,14 @@ test.describe('Dashboard UI Tests', () => {
     const testEmail = `test-${Date.now()}@example.com`;
     const testPassword = 'Test123!';
 
-    await page.request.post('http://localhost:3000/api/auth/register', {
+    await page.request.post('/api/auth/register', {
       data: {
         email: testEmail,
         password: testPassword
       }
     });
 
-    const loginResponse = await page.request.post('http://localhost:3000/api/auth/login', {
+    const loginResponse = await page.request.post('/api/auth/login', {
       data: {
         email: testEmail,
         password: testPassword
@@ -86,14 +86,14 @@ test.describe('Dashboard UI Tests', () => {
     const testEmail = `test-${Date.now()}@example.com`;
     const testPassword = 'Test123!';
 
-    await page.request.post('http://localhost:3000/api/auth/register', {
+    await page.request.post('/api/auth/register', {
       data: {
         email: testEmail,
         password: testPassword
       }
     });
 
-    const loginResponse = await page.request.post('http://localhost:3000/api/auth/login', {
+    const loginResponse = await page.request.post('/api/auth/login', {
       data: {
         email: testEmail,
         password: testPassword
