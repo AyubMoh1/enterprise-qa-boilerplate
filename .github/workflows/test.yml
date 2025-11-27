@@ -33,19 +33,6 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Start API server
-        run: |
-          npm start &
-          echo $! > server.pid
-        env:
-          NODE_ENV: test
-
-      - name: Wait for API health check
-        run: |
-          echo "Waiting for API to be ready..."
-          timeout 30 bash -c 'until curl -f http://localhost:3000/health; do sleep 2; done'
-          echo "API is ready!"
-
       - name: Run tests
         run: |
           if [ "${{ github.event.inputs.test_type }}" = "api" ]; then
@@ -57,13 +44,6 @@ jobs:
           fi
         env:
           CI: true
-
-      - name: Stop API server
-        if: always()
-        run: |
-          if [ -f server.pid ]; then
-            kill $(cat server.pid) || true
-          fi
 
       - name: Upload test reports
         if: always()
