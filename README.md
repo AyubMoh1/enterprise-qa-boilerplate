@@ -19,7 +19,24 @@ A simple Express API with Playwright API and UI testing for authentication and u
 
 ```bash
 docker-compose up
+```
 
+ Output:
+```
+[+] Running 4/4
+ ✔ Network enterprise-qa-boilerplate_qa-network   Created
+ ✔ Container enterprise-qa-boilerplate-app-1      Created
+ ✔ Container enterprise-qa-boilerplate-tests-1    Created
+ ✔ Container enterprise-qa-boilerplate-reports-1  Created
+
+Server running on http://0.0.0.0:3000
+Connected to SQLite database
+
+Running 24 tests using 6 workers
+  ✓  24 passed (7.2s)
+```
+
+```bash
 # View test reports
 open http://localhost:9323
 ```
