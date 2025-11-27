@@ -1,12 +1,15 @@
 # QA Boilerplate
 
-A simple Express API with Playwright API testing for authentication and user management.
+A simple Express API with Playwright API and UI testing for authentication and user management.
 
 ## What's Included
 
 - Express REST API with authentication (JWT)
 - SQLite database with user management
+- Simple frontend (HTML/CSS/JS)
 - Playwright API tests (15 tests)
+- Playwright UI tests (9 tests)
+- Page Object Model for UI tests
 - Auth endpoints: Register & Login
 - Protected CRUD endpoints for users
 
@@ -35,10 +38,17 @@ The API will run on `http://localhost:3000`
 In another terminal:
 
 ```bash
-npm test
+npm test              #run all tests
+npm run test:api      #API tests only
+npm run test:ui       #UI tests only
+npm run test:headed   #run with visible browser
 ```
 
 ## Test Results
+
+24 tests total (15 API + 9 UI)
+
+### API Tests
 
 ```
 Running 15 tests using 3 workers
@@ -60,6 +70,23 @@ Running 15 tests using 3 workers
   ✓  15 tests/api/auth.spec.js:82:3 › Authentication API › should fail to login with non-existent user (3ms)
 
   15 passed (707ms)
+```
+
+### UI Tests
+
+```
+Running 9 tests using 3 workers
+
+  ✓  Login page display and validation
+  ✓  Login with invalid credentials
+  ✓  Login with valid credentials
+  ✓  Auto-redirect when logged in
+  ✓  Dashboard redirect when not authenticated
+  ✓  Dashboard displays user email
+  ✓  Logout functionality
+  ✓  Dashboard elements rendering
+
+  9 passed
 ```
 
 ## API Endpoints
