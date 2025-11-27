@@ -15,33 +15,28 @@ A simple Express API with Playwright API and UI testing for authentication and u
 
 ## Quick Start
 
-### 1. Clone and Install
+### Option 1: Docker
 
 ```bash
-git clone https://github.com/AyubMoh1/enterprise-qa-boilerplate.git
-cd enterprise-qa-boilerplate
+docker-compose up
+
+# View test reports
+open http://localhost:9323
+```
+
+
+### Option 2: Local Setup
+
+```bash
 npm install
-```
 
-### 2. Run the API
-
-In one terminal:
-
-```bash
 npm start
-```
 
-The API will run on `http://localhost:3000`
-
-### 3. Run the Tests
-
-In another terminal:
-
-```bash
-npm test              #run all tests
-npm run test:api      #API tests only
-npm run test:ui       #UI tests only
-npm run test:headed   #run with visible browser
+# 3. Run tests (in another terminal)
+npm test              # Run all tests
+npm run test:api      # API tests only
+npm run test:ui       # UI tests only
+npm run test:headed   # Run with visible browser
 ```
 
 ## Test Results

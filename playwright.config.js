@@ -23,7 +23,6 @@ module.exports = defineConfig({
 
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
 
-
     trace: 'on-first-retry',
 
 
@@ -34,13 +33,28 @@ module.exports = defineConfig({
 
 
     actionTimeout: 10 * 1000,
+
+    ignoreHTTPSErrors: true,
   },
 
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-features=NetworkService',
+            '--disable-features=VizDisplayCompositor',
+            '--proxy-server=direct://',
+            '--proxy-bypass-list=*',
+          ],
+        },
+      },
     },
 
     // Uncomment to test on Firefox
