@@ -1,5 +1,7 @@
 # QA Boilerplate
 
+[![QA Tests](https://github.com/AyubMoh1/enterprise-qa-boilerplate/actions/workflows/test.yml/badge.svg)](https://github.com/AyubMoh1/enterprise-qa-boilerplate/actions/workflows/test.yml)
+
 A simple Express API with Playwright API and UI testing for authentication and user management.
 
 ## What's Included
@@ -55,6 +57,15 @@ npm run test:api      # API tests only
 npm run test:ui       # UI tests only
 npm run test:headed   # Run with visible browser
 ```
+
+## GitHub Actions (CI/CD)
+
+This project includes automated testing via GitHub Actions. The workflow can be **manually triggered** from the GitHub UI:
+
+1. Go to the [Actions tab](https://github.com/AyubMoh1/enterprise-qa-boilerplate/actions/workflows/test.yml)
+2. Click "Run workflow"
+3. Choose test type: `all`, `api`, or `ui`
+4. View test results and download reports from artifacts
 
 ## Test Results
 
