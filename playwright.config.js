@@ -66,7 +66,7 @@ module.exports = defineConfig({
     // },
   ],
 
-  webServer: {
+  webServer: process.env.BASE_URL ? undefined : {
     command: 'npm start',
     url: 'http://localhost:3000/health',
     timeout: 120 * 1000,
